@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 
 
 dimensions_choices = (
@@ -7,19 +7,6 @@ dimensions_choices = (
     ('medium', 'medium'),
     ('large', 'large')
     )
-
-blog_post_pic_pos = (
-    ('blog_img','hhh'),
-    # ('blog_img-20','-20%'),
-    # ('blog_img-30','-30%'),
-    # ('blog_img-40','-40%'),
-    # ('blog_img-50','-50%'),
-    # ('blog_img-60','-60%'),
-    # ('blog_img-70','-70%'),
-    # ('blog_img-80','-80%'),
-    # ('blog_img-90','-90%'),
-    )
-
 
 
 class upload(models.Model):
@@ -34,13 +21,34 @@ class upload(models.Model):
     def __str__(self):
         return self.title
 
+
+blog_img_choices = (
+    ('none', 'top'),
+    ('blog_img-10', '-10%lejjebb'),
+    ('blog_img-30', '-30%lejjebb'),
+    ('blog_img-50', '-50%lejjebb'),
+    ('blog_img-70', '-70%lejjebb'),
+    ('blog_img-90', '-90%lejjebb'),
+    )
+
+
 class blog_post(models.Model):
-    title = models.TextField()
+    title = models.CharField(max_length = 150)
     upload_time = models.DateTimeField()
     content = models.TextField()
     cover_photos = models.ImageField(upload_to = 'cover_photos/%Y/%m')
-    img_pos = models.CharField(max_length = 15, choices = blog_post_pic_pos, 
-        default = 'blog_img')
+    image_position = models.CharField(choices = blog_img_choices,
+        default = 'top', max_length = 25)
+    slug = models.SlugField(max_length = 150)
+
+    def __str__(self):
+        return self.title
+
+
+class about_post(models.Model):
+    title = models.TextField()
+    upload_date = models.DateField()
+    content = models.TextField()
 
     def __str__(self):
         return self.title

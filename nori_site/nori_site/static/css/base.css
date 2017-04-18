@@ -1,4 +1,6 @@
-
+html {
+  overflow-y: scroll;
+}
 
 .card{
     border: none;
@@ -27,6 +29,12 @@
     float: right;
 }
 
+.caption3{
+    float: right;
+    position: relative;
+    bottom: 50px;
+}
+
 #caption{
     padding: 0px 4px;
 }
@@ -37,9 +45,20 @@ small{
 
 }
 
-.blog_img{
+.main_img{
     display: block;
     margin: 0 auto;
+}
+
+.blog_img {
+    width: 100%;
+    max-height: 250px;
+    overflow: hidden;
+}
+
+.blog_img_detail{
+    max-height: 600px;
+    overflow: hidden;
 }
 
 #main_title{
@@ -49,9 +68,10 @@ small{
 }
 
 #main_title_bg{
-    background: linear-gradient(to top right, rgba(224,240,215,1.0),
-        rgba(252,253,200,1.0)
+    background: linear-gradient(to top right, rgba(255,255,255,1.0),
+        rgba(255,255,255,1.0)
         );
+    background: white;
 
 }
 
@@ -66,36 +86,35 @@ h4.blog_title{
 
 
 
-.blog_img {
-    width: 100%;
-    max-height: 250px;
-    overflow: hidden;
-}
 
 .blog_img-10 img {
-    margin: -1 0% 0 0 0;
-}
-.blog_img-20 img {
-    margin: -20% 0 0 0;
+    margin: -10% 0 0 0;
 }
 .blog_img-30 img {
     margin: -30% 0 0 0;
 }
-.blog_img-40 img {
-    margin: -40% 0 0 0;
-}
 .blog_img-50 img {
     margin: -50% 0 0 0;
-}
-.blog_img-60 img {
-    margin: -60% 0 0 0;
 }
 .blog_img-70 img {
     margin: -70% 0 0 0;
 }
-.blog_img-80 img {
-    margin: -80% 0 0 0;
-}
 .blog_img-90 img {
     margin: -90% 0 0 0;
 }
+
+
+.navbar{
+    height:200px;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.top{
+    padding:0;
+}
+
+.jumbotron{
+    background-color: white;
+}
+

@@ -2,20 +2,47 @@
 
 {% block main %}
 
+<div class="container top">
+<nav class="navbar navbar-toggleable-md navbar-light ">
+    <ul class="navbar-nav mr-auto">
+        <a class="navbar-brand" href="{% url 'main:main' %}">Nóri blogja</a>
+    </ul>
 
+
+    <ul class="navbar-nav">
+      <li class="nav-item ">
+        <a class="nav-link" href="{% url 'main:main' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'main:blog' %}">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'main:about' %}">About</a>
+      </li>
+    </ul>
+
+</nav>
+</div>
 
 <div class="container">
     <div class="row">
     {% for post in posts %}
     <div class="card">
-        <h4 class="card-title {{post.img_pos}}">{{post.title}}</h4>
-        <div class="blog_img">
+        <h4 class="card-title">{{post.title}}</h4>
+        <div class="blog_img {{post.image_position}}">
         <img class="img-responsive img-thumbnail " src="{{ post.cover_photos.url }}" alt="Card image cap">
         </div>
         <small class="caption2 text-muted">{{post.upload_date}}</small>
         <div class="card-block">
-        <p class="card-text">{{post.content}}</p>
-    </div>
+        <p class="card-text">{{post.content|truncatechars:"450"}}</p>
+        </div>
+        <div class="jumbotron jumbotron-fluid">
+        <a href="{{ post.title| slugify }}">
+        <small class="text-muted caption3">
+                    Tovább-->
+        </small>
+        </a>
+        </div>
     </div>
     {% endfor %}
 </div>

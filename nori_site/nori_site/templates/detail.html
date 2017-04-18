@@ -15,10 +15,10 @@
       <li class="nav-item ">
         <a class="nav-link" href="{% url 'main:main' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="{% url 'main:blog' %}">Blog</a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="{% url 'main:about' %}">About</a>
       </li>
     </ul>
@@ -27,23 +27,21 @@
 </div>
 
 
-
-
 <div class="container">
     <div class="row">
-    {% for post in posts %}
-    <div class="card">
+    <div class="card ">
         <h4 class="card-title">{{post.title}}</h4>
-       <!--  <small class="caption2 text-muted">{{post.upload_date}}</small> -->
+        <div class="blog_img_detail">
+        <img class="img-responsive img-thumbnail " src="{{ post.cover_photos.url }}" alt="Card image cap">
+        </div>
+        <small class="caption2 text-muted">{{post.upload_time}}</small>
         <div class="card-block">
-        <p class="card-text">{{post.content}}</p>
+        <p class="card-text">{{post.content|truncatechars:"450"}}</p>
+        <a href="{% url 'main:blog' %}"><small class="caption2 text-muted">Vissza</small></a>
+        </div>
     </div>
     </div>
-    {% endfor %}
 </div>
-</div>
-
-
 
 
 
