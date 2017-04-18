@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+
+<div class="container">
+    <div class="row">
+    {% for post in posts %}
+    <div class="card">
+        <h4 class="card-title {{post.img_pos}}">{{post.title}}</h4>
+        <div class="blog_img">
+        <img class="img-responsive img-thumbnail " src="{{ post.cover_photos.url }}" alt="Card image cap">
+        </div>
+        <small class="caption2 text-muted">{{post.upload_date}}</small>
+        <div class="card-block">
+        <p class="card-text">{{post.content}}</p>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+
+
+{% block main %}
+
+<div class="container">
+    <div class="col-12">
+        <div class="row gallery">
+        
+        {% for post in posts %}
+        {% if post.post_dimensions == 'small' %}
+        <div class="col-sm-6 col-md-4">
+        <div class="card">
+        <a href="{{post.photos.url}}">
+        <img class=" img-thumbnail blog_img" src="{{post.photos.url}}" alt="Card image cap">
+        </a>
+        <div id="caption">
+        <small class="caption1 text-muted">{{post.location}}</small>
+        <small class="caption2 text-muted">{{post.upload_date}}</small>
+        </div>
+          <div class="card-block">
+            <h4 class="text-center card-title">{{post.title}}</h4>
+          </div>
+        </div>
+        </div>
+        {% elif post.post_dimensions == 'medium' %}
+        <div class="col-sm-12 col-md-8">
+            <div class="card">
+                <a href="{{post.photos.url}}">
+                <img class=" img-thumbnail blog_img" src="{{post.photos.url}}" alt="Card image cap">
+                </a>
+            <div id="caption">
+                <small class="caption1 text-muted">{{post.location}}</small>
+                <small class="caption2 text-muted">{{post.upload_date}}</small>
+            </div>
+              <div class="card-block">
+                <h4 class="text-center card-title">{{post.title}}</h4>
+              </div>
+            </div>
+        </div>
+        {% elif post.post_dimensions == 'large' %}
+        <div class="col-sm-12 col-md-12">
+            <div class="card">
+                <a href="{{post.photos.url}}">
+                <img class=" img-thumbnail blog_img" src="{{post.photos.url}}" alt="Card image cap">
+                </a>
+            <div id="caption">
+                <small class="caption1 text-muted">{{post.location}}</small>
+                <small class="caption2 text-muted">{{post.upload_date}}</small>
+            </div>
+              <div class="card-block">
+                <h4 class="text-center card-title">{{post.title}}</h4>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
